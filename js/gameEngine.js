@@ -20,9 +20,9 @@ class GameEngine {
     // 설정
     this.lanes = ["Left", "Center", "Right"];
     this.itemTypes = [
-      { type: "apple", score: 100, speed: 3, probability: 0.6 },
-      { type: "orange", score: 200, speed: 5, probability: 0.3 },
-      { type: "bomb", score: 0, speed: 4, probability: 0.1 }
+      { type: "apple", score: 100, speed: 5, probability: 0.6 },
+      { type: "orange", score: 200, speed: 7, probability: 0.3 },
+      { type: "bomb", score: 0, speed: 6, probability: 0.1 }
     ];
 
     // 콜백
