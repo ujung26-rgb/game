@@ -22,7 +22,7 @@ h1 {
     background: white;
     padding: 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Control Panel (Left) */
@@ -65,7 +65,7 @@ button:disabled {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #canvas {
@@ -113,9 +113,13 @@ button:disabled {
 
 #game-stage {
     position: relative;
-    width: 360px;  /* 3 lanes * 120px */
+    width: 360px;
+    /* 3 lanes * 120px */
     height: 600px;
-    background-color: #87CEEB; /* Sky Blue */
+    /* background-color: #87CEEB; */
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     border: 4px solid #2c3e50;
     border-radius: 12px;
     overflow: hidden;
@@ -135,12 +139,14 @@ button:disabled {
 #basket {
     position: absolute;
     bottom: 20px;
-    width: 100px; /* Lane width is 120px, so 10px margin */
+    width: 100px;
+    /* Lane width is 120px, so 10px margin */
     height: 80px;
     font-size: 60px;
     text-align: center;
     line-height: 80px;
-    transition: left 0.15s ease-out; /* Smooth movement */
+    transition: left 0.15s ease-out;
+    /* Smooth movement */
     z-index: 10;
 }
 
@@ -151,5 +157,20 @@ button:disabled {
     font-size: 50px;
     text-align: center;
     line-height: 80px;
-    transform: translateX(-50%); /* Center based on left pos */
+    transform: translateX(-50%);
+    /* Center based on left pos */
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
