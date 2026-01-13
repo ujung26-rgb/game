@@ -2,20 +2,48 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>Teachable Machine Pose Model</title>
+    <title>Fruit Catcher Game</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <h1>Teachable Machine Pose Model</h1>
-    <div class="button-container">
-      <button type="button" id="startBtn" onclick="init()">Start</button>
-      <button type="button" id="stopBtn" onclick="stop()" disabled>Stop</button>
+    <h1>🍊 Fruit Catcher 🍎</h1>
+    
+    <div class="main-layout">
+        <!-- 왼쪽: 웹캠 및 컨트롤 -->
+        <div class="control-panel">
+            <div class="button-container">
+              <button type="button" id="startBtn" onclick="init()">Game Start</button>
+              <button type="button" id="stopBtn" onclick="stop()" disabled>Stop</button>
+            </div>
+            
+            <div class="canvas-container">
+              <canvas id="canvas"></canvas>
+            </div>
+            
+            <div id="max-prediction" class="status-box">Ready</div>
+            <div id="label-container" class="debug-info"></div>
+        </div>
+
+        <!-- 오른쪽: 게임 화면 -->
+        <div class="game-panel">
+            <div class="score-board">
+                <span>Score: <span id="score">0</span></span>
+                <span>Level: <span id="level">1</span></span>
+                <span>Time: <span id="time">60</span></span>
+            </div>
+            
+            <div id="game-stage">
+                <!-- 배경 레인 -->
+                <div class="lane"></div>
+                <div class="lane"></div>
+                <div class="lane"></div>
+                
+                <!-- 동적 요소 (JS로 제어) -->
+                <div id="basket">🧺</div>
+                <div id="item-layer"></div>
+            </div>
+        </div>
     </div>
-    <div class="canvas-container">
-      <canvas id="canvas"></canvas>
-      <div id="max-prediction"></div>
-    </div>
-    <div id="label-container"></div>
 
     <!-- Teachable Machine 라이브러리 -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
